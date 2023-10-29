@@ -7,12 +7,14 @@ import java.util.List;
 import java.util.Map;
 
 import static pl.edu.pwr.filereader.FileParser.*;
+import static pl.edu.pwr.filereader.PathManager.getDatabasePath;
 
 public class Main {
     public static void main(String[] args) {
-      //  System.out.println(getStaffData("src/main/resources/database.txt"));
 
-       System.out.println(EmployeesFactory.getEmployees(getStaffData("src/main/resources/database.txt")));
+        EmployeesFactory employeesFactory = new EmployeesFactory();
+       System.out.println(employeesFactory.getEmployees(getStaffData(getDatabasePath())));
+        System.out.println(getProjectData(getDatabasePath()));
 
     }
 }
