@@ -9,9 +9,9 @@ import java.util.HashMap;
 
 public class FileParser {
 
-    public static HashMap<Integer, ArrayList<String>> getStaffData(String databasePath) {
+    public static HashMap<Integer, ArrayList<String>> getStaffData() {
         HashMap<Integer, ArrayList<String>> staffData = new HashMap<>();
-
+        String databasePath = PathManager.getDatabasePath();
         try {
             BufferedReader reader = new BufferedReader(new FileReader(databasePath));
             String line;
@@ -32,9 +32,9 @@ public class FileParser {
         return staffData;
     }
 
-    public static HashMap<Integer, ArrayList<String>> getProjectData(String databasePath) {
+    public static HashMap<Integer, ArrayList<String>> getProjectData() {
         HashMap<Integer, ArrayList<String>> projectsData = new HashMap<>();
-
+        String databasePath = PathManager.getDatabasePath();
         try {
             BufferedReader reader = new BufferedReader(new FileReader(databasePath));
             String line;

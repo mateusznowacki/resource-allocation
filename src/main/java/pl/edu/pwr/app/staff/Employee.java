@@ -13,11 +13,11 @@ public class Employee {
         ProjectRole = projectRole;
     }
 
-    public Set<pl.edu.pwr.app.staff.ProgrammingSkills> getProgrammingSkills() {
+    public Set<ProgrammingSkills> getProgrammingSkills() {
         return ProgrammingSkills;
     }
 
-    public Set<pl.edu.pwr.app.staff.ProjectRole> getProjectRole() {
+    public Set<ProjectRole> getProjectRole() {
         return ProjectRole;
     }
 
