@@ -11,20 +11,24 @@ public class AllocationAlgorithm {
     public void SequenceAssignEmployeeToProject(CurrentState currentState) {
         ArrayList<Employee> employees = currentState.getEmployees();
         ArrayList<Project> projects = currentState.getProjects();
-        HashMap<Integer,String> employeeToProject = new HashMap<>();
+        HashMap<Integer, String> employeeToProject = new HashMap<>();
 
         for (int i = 0; i < projects.size(); i++) {
             for (int j = 0; j < employees.size(); j++) {
-             //  if (projects.get(i).getProgrammingSkills()
-
-                }
+               if (projects.get(i).equals(employees.get(j).getProgrammingSkills())){
+                  employeeToProject.put(Integer.valueOf(i), String.valueOf(employees.get(j).getProgrammingSkills()));
+                   employees.remove(j);
+                   break;
+               }
 
             }
 
         }
 
-
     }
+
+
+}
 
 
 

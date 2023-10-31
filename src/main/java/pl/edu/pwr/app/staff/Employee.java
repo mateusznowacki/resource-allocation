@@ -1,23 +1,23 @@
 package pl.edu.pwr.app.staff;
 
+import java.util.ArrayList;
 import java.util.Objects;
-import java.util.Set;
 
 public class Employee {
 
-    private final Set<String> ProgrammingSkills;
-    private final Set<String> ProjectRole;
+    private ArrayList<String> ProgrammingSkills;
+    private  ArrayList<String> ProjectRole;
 
-    public Employee(Set<String> programmingSkills, Set<String> projectRole) {
+    public Employee(ArrayList<String> programmingSkills, ArrayList<String> projectRole) {
         ProgrammingSkills = programmingSkills;
         ProjectRole = projectRole;
     }
 
-    public Set<String> getProgrammingSkills() {
+    public ArrayList<String> getProgrammingSkills() {
         return ProgrammingSkills;
     }
 
-    public Set<String> getProjectRole() {
+    public ArrayList<String> getProjectRole() {
         return ProjectRole;
     }
 
