@@ -5,19 +5,19 @@ import java.util.Set;
 
 public class Employee {
 
-    private final Set<ProgrammingSkills> ProgrammingSkills;
-    private final Set<ProjectRole> ProjectRole;
+    private final Set<String> ProgrammingSkills;
+    private final Set<String> ProjectRole;
 
-    public Employee(Set<ProgrammingSkills> programmingSkills, Set<ProjectRole> projectRole) {
+    public Employee(Set<String> programmingSkills, Set<String> projectRole) {
         ProgrammingSkills = programmingSkills;
         ProjectRole = projectRole;
     }
 
-    public Set<ProgrammingSkills> getProgrammingSkills() {
+    public Set<String> getProgrammingSkills() {
         return ProgrammingSkills;
     }
 
-    public Set<ProjectRole> getProjectRole() {
+    public Set<String> getProjectRole() {
         return ProjectRole;
     }
 

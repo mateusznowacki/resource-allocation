@@ -10,6 +10,7 @@ public class CurrentState {
     private ArrayList<Employee> employees;
     private ArrayList<Project> projects;
     private int iterationNumber;
+    private double objectiveFunctionValue;
 
     public CurrentState() {
     }
@@ -41,5 +42,13 @@ public class CurrentState {
 
     public void setIterationNumber(int iterationNumber) {
         this.iterationNumber = iterationNumber;
+    }
+
+    public double getObjectiveFunctionValue() {
+        return objectiveFunctionValue;
+    }
+
+    public void setObjectiveFunctionValue(double objectiveFunctionValue) {
+        this.objectiveFunctionValue = objectiveFunctionValue;
     }
 }

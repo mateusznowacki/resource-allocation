@@ -11,7 +11,7 @@ public class FileParser {
 
     public static HashMap<Integer, ArrayList<String>> getStaffData() {
         HashMap<Integer, ArrayList<String>> staffData = new HashMap<>();
-        String databasePath = PathManager.getDatabasePath();
+        String databasePath = PathManager.getInstance().getDatabasePath();
         try {
             BufferedReader reader = new BufferedReader(new FileReader(databasePath));
             String line;
@@ -34,7 +34,7 @@ public class FileParser {
 
     public static HashMap<Integer, ArrayList<String>> getProjectData() {
         HashMap<Integer, ArrayList<String>> projectsData = new HashMap<>();
-        String databasePath = PathManager.getDatabasePath();
+        String databasePath = PathManager.getInstance().getDatabasePath();
         try {
             BufferedReader reader = new BufferedReader(new FileReader(databasePath));
             String line;

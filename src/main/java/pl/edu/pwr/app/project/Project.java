@@ -1,36 +1,31 @@
 package pl.edu.pwr.app.project;
 
-import pl.edu.pwr.app.staff.ProgrammingSkills;
-import pl.edu.pwr.app.staff.ProjectRole;
-
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Objects;
-import java.util.Set;
 
 public class Project {
 
-    private final ArrayList<ProgrammingSkills> programmers;
+    private ArrayList<String> programmingSkills;
 
-    private final ArrayList<ProjectRole> projectRoles;
+    private ArrayList<String> projectRoles;
 
-    public Project(ArrayList<ProgrammingSkills> programmingSkills, ArrayList<ProjectRole> projectRole) {
-        programmers = programmingSkills;
+    public Project(ArrayList<String> programmingSkills, ArrayList<String> projectRole) {
+        this.programmingSkills = programmingSkills;
         projectRoles = projectRole;
     }
 
-    public ArrayList<ProgrammingSkills> getProgrammers() {
-        return programmers;
+    public ArrayList<String> getProgrammingSkills() {
+        return programmingSkills;
     }
 
-    public ArrayList<ProjectRole> getProjectRoles() {
+    public ArrayList<String> getProjectRoles() {
         return projectRoles;
     }
 
     @Override
     public String toString() {
         return "Project{" +
-                "ProgrammingRequirements=" + programmers +
+                "ProgrammingRequirements=" + programmingSkills +
                 ", ProjectRole=" + projectRoles +
                 '}';
     }
@@ -40,11 +35,11 @@ public class Project {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Project project = (Project) o;
-        return Objects.equals(programmers, project.programmers) && Objects.equals(projectRoles, project.projectRoles);
+        return Objects.equals(programmingSkills, project.programmingSkills) && Objects.equals(projectRoles, project.projectRoles);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(programmers, projectRoles);
+        return Objects.hash(programmingSkills, projectRoles);
     }
 }
