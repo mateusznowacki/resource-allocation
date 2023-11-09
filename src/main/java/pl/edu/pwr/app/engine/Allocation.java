@@ -16,7 +16,8 @@ public class Allocation {
         System.out.println("---------------------------------");
 
         AllocationAlgorithm allocationAlgorithm = new AllocationAlgorithm();
-        allocationAlgorithm.SequenceAssignEmployeeToProject(currentState);
+        allocationAlgorithm.AssignEmployeeToProject(currentState);
+
     }
     public void printReults(){}
 

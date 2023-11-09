@@ -7,9 +7,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d98a7b23-443d-45b3-bb6d-cdc95d421e1e" name="Changes" comment="path fix delete enum">
-      <change afterPath="$PROJECT_DIR$/.idea/intellij-javadocs-4.0.1.xml" afterDir="false" />
+    <list default="true" id="d98a7b23-443d-45b3-bb6d-cdc95d421e1e" name="Changes" comment="fiexes">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/edu/pwr/app/engine/Allocation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/edu/pwr/app/engine/Allocation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pl/edu/pwr/app/engine/AllocationAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/edu/pwr/app/engine/AllocationAlgorithm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/edu/pwr/app/engine/CurrentState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/edu/pwr/app/engine/CurrentState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/edu/pwr/app/engine/InitializeObjects.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/edu/pwr/app/engine/InitializeObjects.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/edu/pwr/app/engine/ProjectTeamAssignments.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pl/edu/pwr/app/staff/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/edu/pwr/app/staff/Employee.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pl/edu/pwr/app/staff/EmployeesFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/edu/pwr/app/staff/EmployeesFactory.java" afterDir="false" />
     </list>
@@ -87,24 +92,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/matty/Desktop/symulacja-kolonie",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "editor.preferences.import",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/matty/Desktop/symulacja-kolonie&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.import&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Application.Unnamed">
     <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="pl.edu.pwr.app.engine.Main" />
@@ -281,7 +286,8 @@
       <workItem from="1698098479452" duration="1013000" />
       <workItem from="1698422268444" duration="225000" />
       <workItem from="1698518461405" duration="11123000" />
-      <workItem from="1698538370348" duration="22806000" />
+      <workItem from="1698538370348" duration="22827000" />
+      <workItem from="1699375586814" duration="13688000" />
     </task>
     <task id="LOCAL-00001" summary="project structure create">
       <created>1698099399890</created>
@@ -322,7 +328,15 @@
       <option name="project" value="LOCAL" />
       <updated>1698711605085</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="fiexes">
+      <option name="closed" value="true" />
+      <created>1698754623167</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1698754623167</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -334,6 +348,7 @@
     <MESSAGE value="FileParser final version" />
     <MESSAGE value="Ready objects initialization" />
     <MESSAGE value="path fix delete enum" />
-    <option name="LAST_COMMIT_MESSAGE" value="path fix delete enum" />
+    <MESSAGE value="fiexes" />
+    <option name="LAST_COMMIT_MESSAGE" value="fiexes" />
   </component>
 </project>

@@ -4,20 +4,25 @@ import pl.edu.pwr.app.project.Project;
 import pl.edu.pwr.app.staff.Employee;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class CurrentState {
-
+    private static CurrentState instance = null;
     private ArrayList<Employee> employees;
     private ArrayList<Project> projects;
+    private HashMap<String, String> assigned = new HashMap<>();
     private int iterationNumber;
     private double objectiveFunctionValue;
 
-    public CurrentState() {
+    private CurrentState() {
+
     }
 
-    public CurrentState(ArrayList<Employee> employees, ArrayList<Project> projects) {
-        this.employees = employees;
-        this.projects = projects;
+    public static CurrentState getInstance() {
+        if (instance == null) {
+            instance = new CurrentState();
+        }
+        return instance;
     }
 
     public ArrayList<Employee> getEmployees() {
@@ -52,3 +57,5 @@ public class CurrentState {
         this.objectiveFunctionValue = objectiveFunctionValue;
     }
 }
+
+

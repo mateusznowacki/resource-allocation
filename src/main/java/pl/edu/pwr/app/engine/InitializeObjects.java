@@ -13,7 +13,7 @@ import static pl.edu.pwr.filereader.FileParser.getStaffData;
 
 public class InitializeObjects {
     public CurrentState initAllObjects() {
-        CurrentState currentState = new CurrentState();
+       CurrentState currentState = CurrentState.getInstance();
 
         //tworzenie listy pracowników
         EmployeesFactory employeesFactory = new EmployeesFactory();

@@ -4,8 +4,10 @@ plugins {
 }
 
 mainClassName = 'pl/edu/pwr/app/engine/Main.java'
-
-
+dependencies {
+// https://mvnrepository.com/artifact/com.google.guava/guava
+    implementation group: 'com.google.guava', name: 'guava', version: '32.1.3-jre'
+}
 group = 'pl.edu.pwr'
 version = '1.0-SNAPSHOT'
 

@@ -7,27 +7,29 @@ public class EmployeesFactory {
 
     public ArrayList<Employee> getEmployees(HashMap<Integer, ArrayList<String>> staffData) {
         ArrayList<Employee> employees = new ArrayList<>();
-
+        int employeeID = 0;
         for (ArrayList<String> employeeData : staffData.values()) {
-            ArrayList<String> programmingSkills = new ArrayList<>();
-            ArrayList<String> projectRoles = new ArrayList<>();
+
+            HashMap<String,Integer> programmingSkills = new HashMap<>();
+            HashMap<String,Integer>projectRoles = new HashMap<>();
 
             for (String data : employeeData) {
                 if (data.contains("PM") || data.contains("QA") || data.contains("ScrumMaster")) {
-                    projectRoles.add(data);
+                    projectRoles.put(data, Integer.valueOf(0));
                 } else {
-                    programmingSkills.add(data);
+                    programmingSkills.put(data, Integer.valueOf(0));
                 }
             }
             if(projectRoles.isEmpty()){
-                projectRoles.add("NONE");
+                projectRoles.put("NONE",Integer.valueOf(0));
             }
             else if (programmingSkills.isEmpty()){
-                programmingSkills.add("NONE");
+                programmingSkills.put("NONE",Integer.valueOf(0));
             }
 
 
-            employees.add(new Employee(programmingSkills, projectRoles));
+            employees.add(new Employee(programmingSkills, projectRoles,employeeID));
+            employeeID++;
         }
 
 
