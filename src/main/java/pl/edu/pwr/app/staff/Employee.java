@@ -9,17 +9,26 @@ import java.util.Objects;
 public class Employee {
 
     private int employeeID;
-    private int projectsCount = 0;
+    private int projectsSkillCount = 0;
+    private int projectsRoleCount = 0;
+    
     private HashMap<String, Integer> programmingSkills;
     private HashMap<String, Integer> projectRole;
 
-
-    public int getEmployeeProjectsCount() {
-        return projectsCount;
+    public int getProjectsSkillCount() {
+        return projectsSkillCount;
     }
 
-    public void setProjectsCount(int projectsCount) {
-        this.projectsCount = projectsCount;
+    public void setProjectsSkillCount(int projectsSkillCount) {
+        this.projectsSkillCount = projectsSkillCount;
+    }
+
+    public int getProjectsRoleCount() {
+        return projectsRoleCount;
+    }
+
+    public void setProjectsRoleCount(int projectsRoleCount) {
+        this.projectsRoleCount = projectsRoleCount;
     }
 
     public Employee(HashMap<String, Integer> programmingSkills, HashMap<String, Integer> projectRole, int employeeID) {
@@ -28,7 +37,7 @@ public class Employee {
         this.employeeID = employeeID;
     }
 
-    public static CurrentState useEmployeeSkills(Employee employee, String skill) {
+    public static CurrentState useEmployee(Employee employee, String skill) {
         CurrentState currentState = CurrentState.getInstance();
         HashMap<String, Integer> programmingSkills = employee.getProgrammingSkills();
         HashMap<String, Integer> projectRole = employee.getProjectRole();
@@ -40,7 +49,7 @@ public class Employee {
 
                 if (currentRole != null && currentRole.equals(skill)) {
                     projectRole.put(skill, roleCount + 1);
-                    employee.projectsCount++;
+                    employee.projectsSkillCount++;
                 }
             }
         } else {
@@ -50,7 +59,7 @@ public class Employee {
 
                 if (currentSkill != null && currentSkill.equals(skill) && (employee.getProgrammingSkills().get(skill)<1) ) {
                     programmingSkills.put(skill, skillCount + 1);
-                    employee.projectsCount++;
+                    employee.projectsRoleCount++;
                 }
             }
         }

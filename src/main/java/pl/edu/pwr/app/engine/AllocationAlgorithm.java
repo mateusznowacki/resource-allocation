@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import static pl.edu.pwr.app.project.Project.removeAssignedRolesAndSkills;
-import static pl.edu.pwr.app.staff.Employee.useEmployeeSkills;
+import static pl.edu.pwr.app.staff.Employee.useEmployee;
 
 public class AllocationAlgorithm {
 
@@ -28,15 +28,15 @@ public class AllocationAlgorithm {
 
                 // Sprawdź, czy jakiekolwiek umiejętności projektu są obecne w umiejętnościach pracownika
                 for (String skill : projectSkills) {
-                    if (programmingSkills.containsKey(skill) && employee.getEmployeeProjectsCount()<1) {
-                        useEmployeeSkills(employee, skill);
+                    if (programmingSkills.containsKey(skill) && employee.getProjectsSkillCount() < 1 && employee.getProjectsRoleCount() == 0) {
+                        useEmployee(employee, skill);
                         removeAssignedRolesAndSkills(project, skill);
                     }
                 }
                 // Sprawdź, czy jakiekolwiek role projektu są obecne w rolach pracownika
                 for (String role : projectRoles) {
-                    if (projectRole.containsKey(role) && employee.getEmployeeProjectsCount()<2) {
-                        useEmployeeSkills(employee, role);
+                    if (projectRole.containsKey(role) && employee.getProjectsSkillCount() == 0 && employee.getProjectsSkillCount() < 2) {
+                        useEmployee(employee, role);
                         removeAssignedRolesAndSkills(project, role);
                     }
                 }
