@@ -7,16 +7,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d98a7b23-443d-45b3-bb6d-cdc95d421e1e" name="Changes" comment="fiexes">
+    <list default="true" id="d98a7b23-443d-45b3-bb6d-cdc95d421e1e" name="Changes" comment="employee hashmap counter">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pl/edu/pwr/app/engine/Allocation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/edu/pwr/app/engine/Allocation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pl/edu/pwr/app/engine/AllocationAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/edu/pwr/app/engine/AllocationAlgorithm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/edu/pwr/app/engine/CurrentState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/edu/pwr/app/engine/CurrentState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/edu/pwr/app/engine/InitializeObjects.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/edu/pwr/app/engine/InitializeObjects.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/edu/pwr/app/engine/ProjectTeamAssignments.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/edu/pwr/app/project/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/edu/pwr/app/project/Project.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pl/edu/pwr/app/staff/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/edu/pwr/app/staff/Employee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/edu/pwr/app/staff/EmployeesFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/edu/pwr/app/staff/EmployeesFactory.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -287,7 +283,7 @@
       <workItem from="1698422268444" duration="225000" />
       <workItem from="1698518461405" duration="11123000" />
       <workItem from="1698538370348" duration="22827000" />
-      <workItem from="1699375586814" duration="13688000" />
+      <workItem from="1699375586814" duration="19195000" />
     </task>
     <task id="LOCAL-00001" summary="project structure create">
       <created>1698099399890</created>
@@ -336,7 +332,15 @@
       <option name="project" value="LOCAL" />
       <updated>1698754623167</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="employee hashmap counter">
+      <option name="closed" value="true" />
+      <created>1699569451322</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1699569451322</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -349,6 +353,7 @@
     <MESSAGE value="Ready objects initialization" />
     <MESSAGE value="path fix delete enum" />
     <MESSAGE value="fiexes" />
-    <option name="LAST_COMMIT_MESSAGE" value="fiexes" />
+    <MESSAGE value="employee hashmap counter" />
+    <option name="LAST_COMMIT_MESSAGE" value="employee hashmap counter" />
   </component>
 </project>

@@ -9,21 +9,21 @@ import java.util.Objects;
 public class Employee {
 
     private int employeeID;
-    private HashMap<String, Integer> ProgrammingSkills;
-    private HashMap<String, Integer> ProjectRole;
+    private HashMap<String, Integer> programmingSkills;
+    private HashMap<String, Integer> projectRole;
 
     public Employee(HashMap<String, Integer> programmingSkills, HashMap<String, Integer> projectRole, int employeeID) {
-        this.ProgrammingSkills = programmingSkills;
-        this.ProjectRole = projectRole;
+        this.programmingSkills = programmingSkills;
+        this.projectRole = projectRole;
         this.employeeID = employeeID;
     }
 
-    public CurrentState useEmployeeSkills(Employee employee, String skill) {
+    public static CurrentState useEmployeeSkills(Employee employee, String skill) {
         CurrentState currentState = CurrentState.getInstance();
         HashMap<String, Integer> programmingSkills = employee.getProgrammingSkills();
         HashMap<String, Integer> projectRole = employee.getProjectRole();
 
-        if ((skill.equals("QA") || skill.equals("PM") || skill.equals("ScrumMaster")) && (employee.getProjectRole().get(skill) <2)) {
+        if ((skill.equals("QA") || skill.equals("PM") || skill.equals("ScrumMaster")) && (employee.getProjectRole().get(skill) <2) ) {
             for (Map.Entry<String, Integer> entry : projectRole.entrySet()) {
                 String currentRole = entry.getKey();
                 Integer roleCount = entry.getValue();
@@ -37,7 +37,7 @@ public class Employee {
                 String currentSkill = entry.getKey();
                 Integer skillCount = entry.getValue();
 
-                if (currentSkill != null && currentSkill.equals(skill)) {
+                if (currentSkill != null && currentSkill.equals(skill) && (employee.getProgrammingSkills().get(skill)<1) ) {
                     programmingSkills.put(skill, skillCount + 1);
                 }
             }
@@ -46,6 +46,8 @@ public class Employee {
 
         return currentState;
     }
+
+
 
     public int getEmployeeID() {
         return employeeID;
@@ -56,19 +58,19 @@ public class Employee {
     }
 
     public HashMap<String, Integer> getProgrammingSkills() {
-        return ProgrammingSkills;
+        return programmingSkills;
     }
 
     public HashMap<String, Integer> getProjectRole() {
-        return ProjectRole;
+        return projectRole;
     }
 
     @Override
     public String toString() {
         return "Employee{" +
                 "employeeID=" + employeeID +
-                ", ProgrammingSkills=" + ProgrammingSkills +
-                ", ProjectRole=" + ProjectRole +
+                ", ProgrammingSkills=" + programmingSkills +
+                ", ProjectRole=" + projectRole +
                 '}';
     }
 
@@ -79,15 +81,15 @@ public class Employee {
 
         Employee employee = (Employee) o;
 
-        if (!Objects.equals(ProjectRole, employee.ProjectRole))
+        if (!Objects.equals(projectRole, employee.projectRole))
             return false;
-        return Objects.equals(ProgrammingSkills, employee.ProgrammingSkills);
+        return Objects.equals(programmingSkills, employee.programmingSkills);
     }
 
     @Override
     public int hashCode() {
-        int result = ProjectRole != null ? ProjectRole.hashCode() : 0;
-        result = 31 * result + (ProgrammingSkills != null ? ProgrammingSkills.hashCode() : 0);
+        int result = projectRole != null ? projectRole.hashCode() : 0;
+        result = 31 * result + (programmingSkills != null ? programmingSkills.hashCode() : 0);
         return result;
     }
 }

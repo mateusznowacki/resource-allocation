@@ -10,10 +10,6 @@ public class Allocation {
 
     public void runAllocation(){
 
-        System.out.println(currentState.getEmployees());
-        System.out.println("---------------------------------");
-        System.out.println(currentState.getProjects());
-        System.out.println("---------------------------------");
 
         AllocationAlgorithm allocationAlgorithm = new AllocationAlgorithm();
         allocationAlgorithm.AssignEmployeeToProject(currentState);
