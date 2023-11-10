@@ -28,14 +28,14 @@ public class AllocationAlgorithm {
 
                 // Sprawdź, czy jakiekolwiek umiejętności projektu są obecne w umiejętnościach pracownika
                 for (String skill : projectSkills) {
-                    if (programmingSkills.containsKey(skill)) {
+                    if (programmingSkills.containsKey(skill) && employee.getEmployeeProjectsCount()<1) {
                         useEmployeeSkills(employee, skill);
                         removeAssignedRolesAndSkills(project, skill);
                     }
                 }
                 // Sprawdź, czy jakiekolwiek role projektu są obecne w rolach pracownika
                 for (String role : projectRoles) {
-                    if (projectRole.containsKey(role)) {
+                    if (projectRole.containsKey(role) && employee.getEmployeeProjectsCount()<2) {
                         useEmployeeSkills(employee, role);
                         removeAssignedRolesAndSkills(project, role);
                     }

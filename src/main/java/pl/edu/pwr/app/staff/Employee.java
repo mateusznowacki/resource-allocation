@@ -9,8 +9,18 @@ import java.util.Objects;
 public class Employee {
 
     private int employeeID;
+    private int projectsCount = 0;
     private HashMap<String, Integer> programmingSkills;
     private HashMap<String, Integer> projectRole;
+
+
+    public int getEmployeeProjectsCount() {
+        return projectsCount;
+    }
+
+    public void setProjectsCount(int projectsCount) {
+        this.projectsCount = projectsCount;
+    }
 
     public Employee(HashMap<String, Integer> programmingSkills, HashMap<String, Integer> projectRole, int employeeID) {
         this.programmingSkills = programmingSkills;
@@ -30,6 +40,7 @@ public class Employee {
 
                 if (currentRole != null && currentRole.equals(skill)) {
                     projectRole.put(skill, roleCount + 1);
+                    employee.projectsCount++;
                 }
             }
         } else {
@@ -39,6 +50,7 @@ public class Employee {
 
                 if (currentSkill != null && currentSkill.equals(skill) && (employee.getProgrammingSkills().get(skill)<1) ) {
                     programmingSkills.put(skill, skillCount + 1);
+                    employee.projectsCount++;
                 }
             }
         }
@@ -46,6 +58,11 @@ public class Employee {
 
         return currentState;
     }
+
+
+
+
+
 
 
 

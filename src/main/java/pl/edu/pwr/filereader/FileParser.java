@@ -20,7 +20,7 @@ public class FileParser {
                     String[] parts = line.split(": "); // Dzieli linię na "R1" i "JAVA QA PM"
                     if (parts.length == 2) {
                         int employeeNumber = Integer.parseInt(parts[0].substring(1)); // Wydobywa numer pracownika (bez litery "R")
-                        String[] skills = parts[1].split(","); // Dzieli umiejętności oddzielone ,
+                        String[] skills = parts[1].split(" "); // Dzieli umiejętności oddzielone
                         staffData.put(employeeNumber, new ArrayList<>(Arrays.asList(skills)));
                     }
                 }
@@ -43,7 +43,7 @@ public class FileParser {
                     String[] parts = line.split(": "); // Dzieli linię na "P1" i "JAVA QA PM"
                     if (parts.length == 2) {
                         int employeeNumber = Integer.parseInt(parts[0].substring(1)); // Wydobywa numer pracownika (bez litery "R")
-                        String[] skills = parts[1].split(","); // Dzieli umiejętności oddzielone ,
+                        String[] skills = parts[1].split(" "); // Dzieli umiejętności oddzielone
                         projectsData.put(employeeNumber, new ArrayList<>(Arrays.asList(skills)));
                     }
                 }
