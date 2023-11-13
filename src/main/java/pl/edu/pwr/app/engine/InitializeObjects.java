@@ -13,17 +13,21 @@ import static pl.edu.pwr.filereader.FileParser.getStaffData;
 
 public class InitializeObjects {
     public CurrentState initAllObjects() {
-       CurrentState currentState = CurrentState.getInstance();
+        CurrentState currentState = CurrentState.getInstance();
 
-        //tworzenie listy pracowników
         EmployeesFactory employeesFactory = new EmployeesFactory();
         ArrayList<Employee> employees = employeesFactory.getEmployees(getStaffData());
+        ArrayList<Employee> employeesCopy = employeesFactory.getEmployees(getStaffData());
         currentState.setEmployees(employees);
+        currentState.setEmployeesCopy(employeesCopy);
 
-        //tworzenie listy projektów
         ProjectsList projectsFactory = new ProjectsList();
         ArrayList<Project> projects = projectsFactory.getProjectsList(getProjectData());
+        ArrayList<Project> projectsCopy = projectsFactory.getProjectsList(getProjectData());
         currentState.setProjects(projects);
+        currentState.setProjectsCopy(projectsCopy);
+        currentState.setNumberOfSkillsRequired(projects.stream().filter(project -> !project.getProgrammingSkills().equals("NONE")).count());
+        currentState.setNumberOfRolesRequired(projects.stream().filter(project -> !project.getProjectRoles().equals("NONE")).count());
 
         return currentState;
     }

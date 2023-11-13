@@ -22,5 +22,4 @@ public class PathManager {
     public void setDatabasePath(String databasePath) {
         this.databasePath = databasePath;
     }
-
 }

@@ -10,31 +10,26 @@ public class EmployeesFactory {
         int employeeID = 0;
         for (ArrayList<String> employeeData : staffData.values()) {
 
-            HashMap<String,Integer> programmingSkills = new HashMap<>();
-            HashMap<String,Integer>projectRoles = new HashMap<>();
+            HashMap<String, Integer> programmingSkills = new HashMap<>();
+            HashMap<String, Integer> projectRoles = new HashMap<>();
 
             for (String data : employeeData) {
-                if (data.contains("PM") || data.contains("QA") || data.contains("ScrumMaster")) {
+                if (data.contains("PM") || data.contains("QA")) {
                     projectRoles.put(data, Integer.valueOf(0));
                 } else {
                     programmingSkills.put(data, Integer.valueOf(0));
                 }
             }
-            if(projectRoles.isEmpty()){
-                projectRoles.put("NONE",Integer.valueOf(0));
-            }
-            else if (programmingSkills.isEmpty()){
-                programmingSkills.put("NONE",Integer.valueOf(0));
+            if (projectRoles.isEmpty()) {
+                projectRoles.put("NONE", Integer.valueOf(0));
+            } else if (programmingSkills.isEmpty()) {
+                programmingSkills.put("NONE", Integer.valueOf(0));
             }
 
-
-            employees.add(new Employee(programmingSkills, projectRoles,employeeID));
+            employees.add(new Employee(programmingSkills, projectRoles, employeeID));
             employeeID++;
         }
 
-
-
         return employees;
     }
-
 }

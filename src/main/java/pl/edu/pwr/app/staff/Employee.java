@@ -6,30 +6,13 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-public class Employee {
+public class Employee implements Cloneable {
 
     private int employeeID;
-    private int projectsSkillCount = 0;
-    private int projectsRoleCount = 0;
-    
-    private HashMap<String, Integer> programmingSkills;
-    private HashMap<String, Integer> projectRole;
-
-    public int getProjectsSkillCount() {
-        return projectsSkillCount;
-    }
-
-    public void setProjectsSkillCount(int projectsSkillCount) {
-        this.projectsSkillCount = projectsSkillCount;
-    }
-
-    public int getProjectsRoleCount() {
-        return projectsRoleCount;
-    }
-
-    public void setProjectsRoleCount(int projectsRoleCount) {
-        this.projectsRoleCount = projectsRoleCount;
-    }
+    private int usedSkillsCount = 0;
+    private int usedRolesCount = 0;
+    private final HashMap<String, Integer> programmingSkills;
+    private final HashMap<String, Integer> projectRole;
 
     public Employee(HashMap<String, Integer> programmingSkills, HashMap<String, Integer> projectRole, int employeeID) {
         this.programmingSkills = programmingSkills;
@@ -42,14 +25,14 @@ public class Employee {
         HashMap<String, Integer> programmingSkills = employee.getProgrammingSkills();
         HashMap<String, Integer> projectRole = employee.getProjectRole();
 
-        if ((skill.equals("QA") || skill.equals("PM") || skill.equals("ScrumMaster")) && (employee.getProjectRole().get(skill) <2) ) {
+        if ((skill.equals("QA") || skill.equals("PM")) && (employee.getProjectRole().get(skill) < 2)) {
             for (Map.Entry<String, Integer> entry : projectRole.entrySet()) {
                 String currentRole = entry.getKey();
                 Integer roleCount = entry.getValue();
 
                 if (currentRole != null && currentRole.equals(skill)) {
                     projectRole.put(skill, roleCount + 1);
-                    employee.projectsSkillCount++;
+                    employee.usedSkillsCount++;
                 }
             }
         } else {
@@ -57,30 +40,15 @@ public class Employee {
                 String currentSkill = entry.getKey();
                 Integer skillCount = entry.getValue();
 
-                if (currentSkill != null && currentSkill.equals(skill) && (employee.getProgrammingSkills().get(skill)<1) ) {
+                if (currentSkill != null && currentSkill.equals(skill) && (employee.getProgrammingSkills().get(skill) < 1)) {
                     programmingSkills.put(skill, skillCount + 1);
-                    employee.projectsRoleCount++;
+                    employee.usedRolesCount++;
                 }
             }
         }
         currentState.getEmployees().set(employee.employeeID, employee);
 
         return currentState;
-    }
-
-
-
-
-
-
-
-
-    public int getEmployeeID() {
-        return employeeID;
-    }
-
-    public void setEmployeeID(int employeeID) {
-        this.employeeID = employeeID;
     }
 
     public HashMap<String, Integer> getProgrammingSkills() {
@@ -91,15 +59,13 @@ public class Employee {
         return projectRole;
     }
 
-    @Override
-    public String toString() {
-        return "Employee{" +
-                "employeeID=" + employeeID +
-                ", ProgrammingSkills=" + programmingSkills +
-                ", ProjectRole=" + projectRole +
-                '}';
+    public int getUsedSkillsCount() {
+        return usedSkillsCount;
     }
 
+    public int getUsedRolesCount() {
+        return usedRolesCount;
+    }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

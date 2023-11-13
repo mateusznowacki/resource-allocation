@@ -7,24 +7,23 @@ import java.util.Iterator;
 import java.util.Objects;
 
 
-public class Project {
+public class Project implements Cloneable {
 
     private ArrayList<String> programmingSkills;
-
     private ArrayList<String> projectRoles;
+    private int projectID;
 
-    public Project(ArrayList<String> programmingSkills, ArrayList<String> projectRole) {
+    public Project(ArrayList<String> programmingSkills, ArrayList<String> projectRole, int projectID) {
         this.programmingSkills = programmingSkills;
-        projectRoles = projectRole;
+        this.projectRoles = projectRole;
+        this.projectID = projectID;
     }
-
 
     public static CurrentState removeAssignedRolesAndSkills(Project project, String role) {
         CurrentState currentState = CurrentState.getInstance();
         ArrayList<String> programmingSkills = (ArrayList<String>) project.getProgrammingSkills().clone();
         ArrayList<String> projectRoles = (ArrayList<String>) project.getProjectRoles().clone();
 
-        // Usuwanie z programmingSkills
         Iterator<String> programmingSkillsIterator = programmingSkills.iterator();
         while (programmingSkillsIterator.hasNext()) {
             String skill = programmingSkillsIterator.next();
@@ -33,7 +32,6 @@ public class Project {
             }
         }
 
-        // Usuwanie z projectRoles
         Iterator<String> projectRolesIterator = projectRoles.iterator();
         while (projectRolesIterator.hasNext()) {
             String projectRole = projectRolesIterator.next();
@@ -47,6 +45,9 @@ public class Project {
         return currentState;
     }
 
+    public Integer getProjectID() {
+        return Integer.valueOf(projectID);
+    }
 
     public ArrayList<String> getProgrammingSkills() {
         return programmingSkills;
@@ -62,14 +63,6 @@ public class Project {
 
     public void setProjectRoles(ArrayList<String> projectRoles) {
         this.projectRoles = projectRoles;
-    }
-
-    @Override
-    public String toString() {
-        return "Project{" +
-                "ProgrammingRequirements=" + programmingSkills +
-                ", ProjectRole=" + projectRoles +
-                '}';
     }
 
     @Override

@@ -1,7 +1,5 @@
 package pl.edu.pwr.app.engine;
 
-import com.google.common.collect.HashBasedTable;
-import com.google.common.collect.Table;
 import pl.edu.pwr.app.project.Project;
 import pl.edu.pwr.app.staff.Employee;
 
@@ -13,41 +11,82 @@ import static pl.edu.pwr.app.staff.Employee.useEmployee;
 
 public class AllocationAlgorithm {
 
-    public void AssignEmployeeToProject(CurrentState currentState) {
-        Table<Integer, String, String> allocatedStaff = HashBasedTable.create();
+    public void AssignEmployeeBySkill(CurrentState currentState) {
+        ArrayList<String> allocatedStaff = new ArrayList<>();
         ArrayList<Employee> employees = currentState.getEmployees();
         ArrayList<Project> projects = currentState.getProjects();
 
-        for (Project project : projects) {
-            ArrayList<String> projectSkills = project.getProgrammingSkills();
-            ArrayList<String> projectRoles = project.getProjectRoles();
+        for (Employee employee : employees) {
+            HashMap<String, Integer> programmingSkills = employee.getProgrammingSkills();
+            HashMap<String, Integer> projectRole = employee.getProjectRole();
 
-            for (Employee employee : employees) {
-                HashMap<String, Integer> programmingSkills = employee.getProgrammingSkills();
-                HashMap<String, Integer> projectRole = employee.getProjectRole();
+            for (Project project : projects) {
+                ArrayList<String> projectSkills = project.getProgrammingSkills();
+                ArrayList<String> projectRoles = project.getProjectRoles();
 
-                // Sprawdź, czy jakiekolwiek umiejętności projektu są obecne w umiejętnościach pracownika
                 for (String skill : projectSkills) {
-                    if (programmingSkills.containsKey(skill) && employee.getProjectsSkillCount() < 1 && employee.getProjectsRoleCount() == 0) {
+                    if (programmingSkills.containsKey(skill)
+                            && employee.getUsedSkillsCount() < 1
+                            && employee.getUsedRolesCount() == 0
+                            && !skill.equals("NONE")) {
                         useEmployee(employee, skill);
                         removeAssignedRolesAndSkills(project, skill);
+                        allocatedStaff.add(project.getProjectID() + "," + skill);
                     }
                 }
-                // Sprawdź, czy jakiekolwiek role projektu są obecne w rolach pracownika
+
                 for (String role : projectRoles) {
-                    if (projectRole.containsKey(role) && employee.getProjectsSkillCount() == 0 && employee.getProjectsSkillCount() < 2) {
+                    if (projectRole.containsKey(role)
+                            && employee.getUsedSkillsCount() == 0
+                            && employee.getUsedRolesCount() < 2
+                            && !role.equals("NONE")) {
                         useEmployee(employee, role);
                         removeAssignedRolesAndSkills(project, role);
+                        allocatedStaff.add(project.getProjectID() + "," + role);
                     }
                 }
             }
         }
+        currentState.setAllocatedStaff(allocatedStaff);
+    }
 
-        System.out.println("---------------------------------");
+    public void AssignEmployeeByRole(CurrentState currentState) {
+        ArrayList<String> allocatedStaff = new ArrayList<>();
+        ArrayList<Employee> employees = currentState.getEmployees();
+        ArrayList<Project> projects = currentState.getProjects();
 
-        //System.out.println(currentState.getProjects());
-        System.out.println(currentState.getEmployees());
+        for (Employee employee : employees) {
+            HashMap<String, Integer> programmingSkills = employee.getProgrammingSkills();
+            HashMap<String, Integer> projectRole = employee.getProjectRole();
 
+            for (Project project : projects) {
+                ArrayList<String> projectSkills = project.getProgrammingSkills();
+                ArrayList<String> projectRoles = project.getProjectRoles();
+
+                for (String role : projectRoles) {
+                    if (projectRole.containsKey(role)
+                            && employee.getUsedSkillsCount() == 0
+                            && employee.getUsedRolesCount() < 2
+                            && !role.equals("NONE")) {
+                        useEmployee(employee, role);
+                        removeAssignedRolesAndSkills(project, role);
+                        allocatedStaff.add(project.getProjectID() + "," + role);
+                    }
+                }
+
+                for (String skill : projectSkills) {
+                    if (programmingSkills.containsKey(skill)
+                            && employee.getUsedSkillsCount() < 1
+                            && employee.getUsedRolesCount() == 0
+                            && !skill.equals("NONE")) {
+                        useEmployee(employee, skill);
+                        removeAssignedRolesAndSkills(project, skill);
+                        allocatedStaff.add(project.getProjectID() + "," + skill);
+                    }
+                }
+            }
+        }
+        currentState.setAllocatedStaff(allocatedStaff);
     }
 }
 
